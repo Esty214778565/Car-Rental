@@ -1,0 +1,223 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "E:\\Net Core\\CarRental\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|e:\\net core\\carrental\\carrental\\servises\\invitation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|solutionrelative:carrental\\servises\\invitation.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|e:\\net core\\carrental\\carrental\\servises\\collectionpointservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|solutionrelative:carrental\\servises\\collectionpointservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|e:\\net core\\carrental\\carrental\\servises\\invitationservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|solutionrelative:carrental\\servises\\invitationservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|e:\\net core\\carrental\\carrental\\servises\\userservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|solutionrelative:carrental\\servises\\userservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|e:\\net core\\carrental\\carrental\\servises\\carservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|solutionrelative:carrental\\servises\\carservise.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|e:\\net core\\carrental\\carrental\\servises\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|solutionrelative:carrental\\servises\\car.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|e:\\net core\\carrental\\carrental\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|solutionrelative:carrental\\controllers\\carcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|e:\\net core\\carrental\\carrental\\controllers\\invitstioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|solutionrelative:carrental\\controllers\\invitstioncontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|e:\\net core\\carrental\\carrental\\servises\\collectionpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|solutionrelative:carrental\\servises\\collectionpoint.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|e:\\net core\\carrental\\carrental\\controllers\\collectionpointcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|solutionrelative:carrental\\controllers\\collectionpointcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|e:\\net core\\carrental\\carrental\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|solutionrelative:carrental\\controllers\\usercontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|e:\\net core\\carrental\\carrental\\servises\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{EB3FB665-3C27-4443-9C5A-188D7F935037}|CarRental\\CarRental.csproj|solutionrelative:carrental\\servises\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 5,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "InvitationServise.cs",
+              "DocumentMoniker": "E:\\Net Core\\CarRental\\CarRental\\servises\\InvitationServise.cs",
+              "RelativeDocumentMoniker": "CarRental\\servises\\InvitationServise.cs",
+              "ToolTip": "E:\\Net Core\\CarRental\\CarRental\\servises\\InvitationServise.cs",
+              "RelativeToolTip": "CarRental\\servises\\InvitationServise.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAzwAgAAAALAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T13:26:50.122Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "UserServise.cs",
+              "DocumentMoniker": "E:\\Net Core\\CarRental\\CarRental\\servises\\UserServise.cs",
+              "RelativeDocumentMoniker": "CarRental\\servises\\UserServise.cs",
+              "ToolTip": "E:\\Net Core\\CarRental\\CarRental\\servises\\UserServise.cs",
+              "RelativeToolTip": "CarRental\\servises\\UserServise.cs",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAzwCMAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T21:24:13.742Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "CarServise.cs",
+              "DocumentMoniker": "E:\\Net Core\\CarRental\\CarRental\\servises\\CarServise.cs",
+              "RelativeDocumentMoniker": "CarRental\\servises\\CarServise.cs",
+              "ToolTip": "E:\\Net Core\\CarRental\\CarRental\\servises\\CarServise.cs",
+              "RelativeToolTip": "CarRental\\servises\\CarServise.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAoAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T19:23:30.447Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "CarController.cs",
+              "DocumentMoniker": "E:\\Net Core\\CarRental\\CarRental\\Controllers\\CarController.cs",
+              "RelativeDocumentMoniker": "CarRental\\Controllers\\CarController.cs",
+              "ToolTip": "E:\\Net Core\\CarRental\\CarRental\\Controllers\\CarController.cs",
+              "RelativeToolTip": "CarRental\\Controllers\\CarController.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T19:22:31.668Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "CollectionPoint.cs",
+              "DocumentMoniker": "E:\\Net Core\\CarRental\\CarRental\\servises\\CollectionPoint.cs",
+              "RelativeDocumentMoniker": "CarRental\\servises\\CollectionPoint.cs",
+              "ToolTip": "E:\\Net Core\\CarRental\\CarRental\\servises\\CollectionPoint.cs",
+              "RelativeToolTip": "CarRental\\servises\\CollectionPoint.cs",
+              "ViewState": "AQIAAAIAAAAAAAAAAAAxwAcAAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T11:02:08.545Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Invitation.cs",
+              "DocumentMoniker": "E:\\Net Core\\CarRental\\CarRental\\servises\\Invitation.cs",
+              "RelativeDocumentMoniker": "CarRental\\servises\\Invitation.cs",
+              "ToolTip": "E:\\Net Core\\CarRental\\CarRental\\servises\\Invitation.cs",
+              "RelativeToolTip": "CarRental\\servises\\Invitation.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAqwAUAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T10:33:06.496Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "Car.cs",
+              "DocumentMoniker": "E:\\Net Core\\CarRental\\CarRental\\servises\\Car.cs",
+              "RelativeDocumentMoniker": "CarRental\\servises\\Car.cs",
+              "ToolTip": "E:\\Net Core\\CarRental\\CarRental\\servises\\Car.cs",
+              "RelativeToolTip": "CarRental\\servises\\Car.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAAAYAAAAuAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T10:16:12.967Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "CollectionPointServise.cs",
+              "DocumentMoniker": "E:\\Net Core\\CarRental\\CarRental\\servises\\CollectionPointServise.cs",
+              "RelativeDocumentMoniker": "CarRental\\servises\\CollectionPointServise.cs",
+              "ToolTip": "E:\\Net Core\\CarRental\\CarRental\\servises\\CollectionPointServise.cs",
+              "RelativeToolTip": "CarRental\\servises\\CollectionPointServise.cs",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAuwAUAAAAnAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T13:36:28.881Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "InvitstionController.cs",
+              "DocumentMoniker": "E:\\Net Core\\CarRental\\CarRental\\Controllers\\InvitstionController.cs",
+              "RelativeDocumentMoniker": "CarRental\\Controllers\\InvitstionController.cs",
+              "ToolTip": "E:\\Net Core\\CarRental\\CarRental\\Controllers\\InvitstionController.cs",
+              "RelativeToolTip": "CarRental\\Controllers\\InvitstionController.cs",
+              "ViewState": "AQIAACgAAAAAAAAAAAAMwC8AAAAIAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T13:30:29.228Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "CollectionPointController.cs",
+              "DocumentMoniker": "E:\\Net Core\\CarRental\\CarRental\\Controllers\\CollectionPointController.cs",
+              "RelativeDocumentMoniker": "CarRental\\Controllers\\CollectionPointController.cs",
+              "ToolTip": "E:\\Net Core\\CarRental\\CarRental\\Controllers\\CollectionPointController.cs",
+              "RelativeToolTip": "CarRental\\Controllers\\CollectionPointController.cs",
+              "ViewState": "AQIAAB4AAAAAAAAAAAAYwCsAAAAcAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T13:40:49.206Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "UserController.cs",
+              "DocumentMoniker": "E:\\Net Core\\CarRental\\CarRental\\Controllers\\UserController.cs",
+              "RelativeDocumentMoniker": "CarRental\\Controllers\\UserController.cs",
+              "ToolTip": "E:\\Net Core\\CarRental\\CarRental\\Controllers\\UserController.cs",
+              "RelativeToolTip": "CarRental\\Controllers\\UserController.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAADwvwwAAAAkAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-30T13:23:54.234Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "User.cs",
+              "DocumentMoniker": "E:\\Net Core\\CarRental\\CarRental\\servises\\User.cs",
+              "RelativeDocumentMoniker": "CarRental\\servises\\User.cs",
+              "ToolTip": "E:\\Net Core\\CarRental\\CarRental\\servises\\User.cs",
+              "RelativeToolTip": "CarRental\\servises\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAQAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-29T10:29:49.119Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
