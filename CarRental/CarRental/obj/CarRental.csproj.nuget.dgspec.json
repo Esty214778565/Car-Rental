@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "E:\\Net Core\\CarRental\\CarRental\\CarRental.csproj": {}
+    "C:\\Users\\user1\\Desktop\\Car Rental\\CarRental\\CarRental\\CarRental.csproj": {}
   },
   "projects": {
-    "E:\\Net Core\\CarRental\\CarRental\\CarRental.csproj": {
+    "C:\\Users\\user1\\Desktop\\Car Rental\\CarRental\\CarRental\\CarRental.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\Net Core\\CarRental\\CarRental\\CarRental.csproj",
+        "projectUniqueName": "C:\\Users\\user1\\Desktop\\Car Rental\\CarRental\\CarRental\\CarRental.csproj",
         "projectName": "CarRental",
-        "projectPath": "E:\\Net Core\\CarRental\\CarRental\\CarRental.csproj",
+        "projectPath": "C:\\Users\\user1\\Desktop\\Car Rental\\CarRental\\CarRental\\CarRental.csproj",
         "packagesPath": "C:\\Users\\user1\\.nuget\\packages\\",
-        "outputPath": "E:\\Net Core\\CarRental\\CarRental\\obj\\",
+        "outputPath": "C:\\Users\\user1\\Desktop\\Car Rental\\CarRental\\CarRental\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

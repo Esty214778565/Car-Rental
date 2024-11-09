@@ -1,47 +1,50 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using CarRental.Entity;
+using Microsoft.AspNetCore.Mvc;
 
 namespace CarRental.servises
 {
     public class CarServise
     {
-        public List<Car> Cars { get; set; }
         public CarServise()
         {
-            Cars= new List<Car>();
-         
         }
         public List<Car> getCars()
         {
-            return Cars;
+            if (DataContextManager.DataContext.Cars == null)
+                DataContextManager.DataContext.Cars = new List<Car>();
+            return DataContextManager.DataContext.Cars;
         }
 
         public Car GetCarById(int id)
-        {
-            return Cars.Find(car => car.Id == id);
+        {   
+            return DataContextManager.DataContext.Cars.Find(car => car.Id == id);
         }
 
-        public bool PutCar(int id,Car car)
+        public bool Update(int id,Car car)
         {
-            Car ca = Cars.Find(c => c.Id ==id);
+            Car ca = DataContextManager.DataContext.Cars.Find(c => c.Id ==id);
             if (ca == null) 
                 return false;
-            Cars.Remove(ca);
-            Cars.Add(car);
+            DataContextManager.DataContext.Cars.Remove(ca);
+            DataContextManager.DataContext.Cars.Add(car);
             return true;
         }
-        public bool PostCar(Car car)
+        public bool Add(Car car)
         {
-            Cars.Add(car);
+            if(DataContextManager.DataContext.Cars ==null)
+              DataContextManager.DataContext.Cars = new List<Car>();
+            DataContextManager.DataContext.Cars.Add(car);
             return true;
         }
         public bool DeleteCar(int id)
         {
-            Car car=Cars.Find(i=>i.Id==id);
+            Car car= DataContextManager.DataContext.Cars.Find(i=>i.Id==id);
             if (car == null)
                 return false;
-            Cars.Remove(car);
+            DataContextManager.DataContext.Cars.Remove(car);
             return true;
         }
+        
 
 
     }

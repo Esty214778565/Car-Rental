@@ -1,4 +1,5 @@
-﻿using CarRental.servises;
+﻿using CarRental.Entity;
+using CarRental.servises;
 using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
@@ -9,19 +10,20 @@ namespace CarRental.Controllers
     [ApiController]
     public class InvitstionController : ControllerBase
     {
-        static InvitationServise invitationServise = new InvitationServise();
+         readonly InvitationServise invitationServise = new InvitationServise();
         // GET: api/<InvitationController>
         [HttpGet]
         public ActionResult<List<Invitation>> Get()
         {
-            List<Invitation> result = invitationServise.getInvitations();
-            return result == null ? NotFound() : result;
+            return invitationServise.getInvitations();
         }
 
         // GET api/<InvitationController>/5
         [HttpGet("{id}")]
-        public ActionResult<Invitation> Get(int id)
+        public ActionResult<Invitation> GetById(int id)
         {
+            if (id < 0)
+                return BadRequest();
             Invitation result = invitationServise.GetInvitationById(id);
             return result == null ? NotFound() : result;
         }
@@ -30,21 +32,21 @@ namespace CarRental.Controllers
         [HttpPost]
         public ActionResult<bool> Post([FromBody] Invitation invitation)
         {
-            return !invitationServise.PostInvitation(invitation) ? NotFound() : Ok(true);
+            return invitationServise.Add(invitation);
         }
 
         // PUT api/<InvitationController>/5
         [HttpPut("{id}")]
         public ActionResult<bool> Put(int id, [FromBody] Invitation invitation)
         {
-            return !invitationServise.PutInvitation(id, invitation) ? NotFound() : Ok(true);
+            return !invitationServise.Update(id, invitation) ? NotFound() : true;
         }
 
         // DELETE api/<InvitationController>/5
         [HttpDelete("{id}")]
         public ActionResult<bool> Delete(int id)
         {
-            return !invitationServise.DeleteInvitation(id) ? NotFound() : Ok(true);
+            return !invitationServise.DeleteInvitation(id) ? NotFound() : true;
         }
 
 

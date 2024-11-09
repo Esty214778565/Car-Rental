@@ -1,43 +1,45 @@
-﻿namespace CarRental.servises
+﻿using CarRental.Entity;
+
+namespace CarRental.servises
 {
     public class CollectionPointServise
     {
-        public List<CollectionPoint> CollectionPoints { get; set; }
-        public CollectionPointServise()
-        {
-            CollectionPoints = new List<CollectionPoint>();
-         
-        }
+      
+      
         public List<CollectionPoint> getCollectionPoints()
         {
-            return CollectionPoints;
+            if (DataContextManager.DataContext.CollectionPoints == null)
+                DataContextManager.DataContext.CollectionPoints = new List<CollectionPoint>();
+            return DataContextManager.DataContext.CollectionPoints;
         }
 
         public CollectionPoint GetCollectionPointById(int id)
         {
-            return CollectionPoints.Find(CollectionPoint => CollectionPoint.Id == id);
+            return DataContextManager.DataContext.CollectionPoints.Find(CollectionPoint => CollectionPoint.Id == id);
         }
 
-        public bool PutCollectionPoint(int id, CollectionPoint CollectionPoint)
+        public bool Update(int id, CollectionPoint CollectionPoint)
         {
-            CollectionPoint ca = CollectionPoints.Find(c => c.Id == id);
+            CollectionPoint ca = DataContextManager.DataContext.CollectionPoints.Find(c => c.Id == id);
             if (ca == null)
                 return false;
-            CollectionPoints.Remove(ca);
-            CollectionPoints.Add(CollectionPoint);
+            DataContextManager.DataContext.CollectionPoints.Remove(ca);
+            DataContextManager.DataContext.CollectionPoints.Add(CollectionPoint);
             return true;
         }
-        public bool PostCollectionPoint(CollectionPoint CollectionPoint)
+        public bool Add(CollectionPoint CollectionPoint)
         {
-            CollectionPoints.Add(CollectionPoint);
+            if(DataContextManager.DataContext.CollectionPoints == null)
+                DataContextManager.DataContext.CollectionPoints = new List<CollectionPoint>();
+            DataContextManager.DataContext.CollectionPoints.Add(CollectionPoint);
             return true;
         }
         public bool DeleteCollectionPoint(int id)
         {
-            CollectionPoint CollectionPoint = CollectionPoints.Find(i => i.Id == id);
+            CollectionPoint CollectionPoint = DataContextManager.DataContext.CollectionPoints.Find(i => i.Id == id);
             if (CollectionPoint == null)
                 return false;
-            CollectionPoints.Remove(CollectionPoint);
+            DataContextManager.DataContext.CollectionPoints.Remove(CollectionPoint);
             return true;
         }
 
