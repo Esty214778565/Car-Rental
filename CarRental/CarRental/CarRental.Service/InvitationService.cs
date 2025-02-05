@@ -1,4 +1,6 @@
-﻿using CarRental.Core.Entities;
+﻿using AutoMapper;
+using CarRental.Core.DTOs;
+using CarRental.Core.Entities;
 using CarRental.Core.IRepository;
 using CarRental.Core.IService;
 using System;
@@ -12,23 +14,26 @@ namespace CarRental.Service
     public class InvitationService : IInvitationService
     {
 
-       
         readonly IRepository<InvitationEntity> _InvitationRepository;
 
-
-        public InvitationService(IRepository<InvitationEntity> invitationRepository)
+        readonly IMapper _mapper;
+        public InvitationService(IRepository<InvitationEntity> invitationRepository,IMapper mapper)
         {
             _InvitationRepository = invitationRepository;
+            _mapper = mapper;
         }
 
-        public List<InvitationEntity> GetInvitationList()
+        public List<InvitationDto> GetInvitationList()
         {
-            return _InvitationRepository.GetAllData();
+            var list= _InvitationRepository.GetAllDataAsync();
+            var listDto=_mapper.Map<IEnumerable<InvitationDto>>(list);
+            return listDto.ToList();
         }
 
-        public InvitationEntity GetInvitationById(int id)
+        public InvitationDto GetInvitationById(int id)
         {
-            return _InvitationRepository.GetById(id);
+            var invitation= _InvitationRepository.GetById(id);
+            return _mapper.Map<InvitationDto>(invitation);
         }
 
         public bool Add(InvitationEntity Invitation)

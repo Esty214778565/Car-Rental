@@ -14,7 +14,7 @@ namespace CarRental.Data.Repository
         public CarRepository(DataContext dataContext)
         { _dataContext = dataContext; }
 
-        public List<CarEntity> GetAllData()
+        public List<CarEntity> GetAllDataAsync()
         {
             return _dataContext.Cars.ToList();
         }
@@ -42,7 +42,7 @@ namespace CarRental.Data.Repository
             int i = _dataContext.Cars.ToList().FindIndex(c => c.Id == car.Id);
             if (i < 0)
                 return false;
-            if (car.IsAvailable != _dataContext.Cars.ToList()[i].IsAvailable)
+            if (car.IsAvailable !=null) 
                 _dataContext.Cars.ToList()[i].IsAvailable = car.IsAvailable;
             if (car.Test_validity != new DateTime())
                 _dataContext.Cars.ToList()[i].Test_validity = car.Test_validity;

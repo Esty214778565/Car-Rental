@@ -1,4 +1,5 @@
-﻿using CarRental.Core.Entities;
+﻿using CarRental.Core.DTOs;
+using CarRental.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace CarRental.Core.IService
 {
     public interface ICollectionPointService
     {
-        List<CollectionPointEntity> GetCollectionPointList();
-        CollectionPointEntity GetCollectionPointById(int id);
+        List<CollectionPointDto> GetCollectionPointList();
+        CollectionPointDto GetCollectionPointById(int id);
         bool Add(CollectionPointEntity collectionPoint);
         bool Update(CollectionPointEntity collectionPoint);
         bool Delete(int id);

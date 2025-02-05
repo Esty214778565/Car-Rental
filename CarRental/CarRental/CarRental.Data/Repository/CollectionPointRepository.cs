@@ -37,7 +37,6 @@ namespace CarRental.Data.Repository
             try
             {
                 CollectionPointEntity c_p = _dataContext.CollectionPoints.ToList().Find(c => c.Id == id);
-
                 _dataContext.CollectionPoints.Remove(c_p);
                 _dataContext.SaveChanges();
                 return true;
@@ -46,7 +45,7 @@ namespace CarRental.Data.Repository
             { return false; }
         }
 
-        public List<CollectionPointEntity> GetAllData()
+        public List<CollectionPointEntity> GetAllDataAsync()
         {
             return _dataContext.CollectionPoints.ToList();
         }
@@ -65,7 +64,7 @@ namespace CarRental.Data.Repository
                 _dataContext.CollectionPoints.ToList()[i].Adress = collectionPoint.Adress;
            if(collectionPoint.City!="")
                 _dataContext.CollectionPoints.ToList()[i].City = collectionPoint.City;
-            if(collectionPoint.Accessible_to_disabled != _dataContext.CollectionPoints.ToList()[i].Accessible_to_disabled)
+            if(collectionPoint.Accessible_to_disabled !=null)
                 _dataContext.CollectionPoints.ToList()[i].Accessible_to_disabled = collectionPoint.Accessible_to_disabled;
             if(collectionPoint.Max_num_of_cars>0)
                 _dataContext.CollectionPoints.ToList()[i].Max_num_of_cars=collectionPoint.Max_num_of_cars;

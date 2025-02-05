@@ -5,6 +5,7 @@ using CarRental.Service;
 using CarRental.Data.Repository;
 using CarRental.Core.IRepository;
 using CarRental.api.Controllers;
+using CarRental.Core.DTOs;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -23,18 +24,18 @@ namespace CarRental.api.Controllers
 
         // GET: api/<CollectionPointController>
         [HttpGet]
-        public ActionResult<List<CollectionPointEntity>> Get()
+        public ActionResult<List<CollectionPointDto>> Get()
         {
             return _collectionPointService.GetCollectionPointList();
         }
 
         // GET api/<CollectionPointController>/5
         [HttpGet("{id}")]
-        public ActionResult<CollectionPointEntity> GetById(int id)
+        public ActionResult<CollectionPointDto> GetById(int id)
         {
             if (id < 0)
                 return BadRequest();
-            CollectionPointEntity result = _collectionPointService.GetCollectionPointById(id);
+            var result = _collectionPointService.GetCollectionPointById(id);
             return result == null ? NotFound() : result;
         }
 

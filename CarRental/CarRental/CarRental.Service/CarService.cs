@@ -1,6 +1,9 @@
-﻿using CarRental.Core.Entities;
+﻿using AutoMapper;
+using CarRental.Core.DTOs;
+using CarRental.Core.Entities;
 using CarRental.Core.IRepository;
 using CarRental.Core.IService;
+using System.Runtime.CompilerServices;
 
 namespace CarRental.Service
 {
@@ -9,22 +12,27 @@ namespace CarRental.Service
 
        
         readonly IRepository<CarEntity> _CarRepository;
+        readonly IMapper _mapper;
         
-        public CarService(IRepository<CarEntity> carRepository)
+        public CarService(IRepository<CarEntity> carRepository,IMapper mapper)
         {
             _CarRepository = carRepository;
+            _mapper = mapper;
         }
      
             
 
-        public List<CarEntity> GetCarList()
+        public List<CarDto> GetCarList()
         {
-            return _CarRepository.GetAllData();
+            var list= _CarRepository.GetAllDataAsync();
+            var listDto=_mapper.Map<IEnumerable<CarDto>>(list);
+            return listDto.ToList(); 
         }
 
-        public CarEntity GetCarById(int id)
+        public CarDto GetCarById(int id)
         {
-            return _CarRepository.GetById(id);
+            var car= _CarRepository.GetById(id);
+            return _mapper.Map<CarDto>(car);
         }
 
         public bool Add(CarEntity Car)

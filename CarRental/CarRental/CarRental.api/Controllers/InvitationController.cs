@@ -1,4 +1,5 @@
-﻿using CarRental.Core.Entities;
+﻿using CarRental.Core.DTOs;
+using CarRental.Core.Entities;
 using CarRental.Core.IService;
 using Microsoft.AspNetCore.Mvc;
 
@@ -20,18 +21,18 @@ namespace CarRental.api.Controllers
 
         // GET: api/<InvitationController>
         [HttpGet]
-        public ActionResult<List<InvitationEntity>> Get()
+        public ActionResult<List<InvitationDto>> Get()
         {
             return _invitationService.GetInvitationList();
         }
 
         // GET api/<InvitationController>/5
         [HttpGet("{id}")]
-        public ActionResult<InvitationEntity> GetById(int id)
+        public ActionResult<InvitationDto> GetById(int id)
         {
             if (id < 0)
                 return BadRequest();
-            InvitationEntity result = _invitationService.GetInvitationById(id);
+            var result = _invitationService.GetInvitationById(id);
             return result == null ? NotFound() : result;
         }
 

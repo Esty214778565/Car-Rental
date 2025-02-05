@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CarRental.Data.Migrations
 {
     [DbContext(typeof(DataContext))]
-    [Migration("20241207223703_carRental")]
-    partial class carRental
+    [Migration("20241215094502_with_foreign_key")]
+    partial class with_foreign_key
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -42,7 +42,7 @@ namespace CarRental.Data.Migrations
                     b.Property<int>("Fuel_consumption_per_km")
                         .HasColumnType("int");
 
-                    b.Property<bool>("IsAvailable")
+                    b.Property<bool?>("IsAvailable")
                         .HasColumnType("bit");
 
                     b.Property<int>("Kategory")
@@ -57,7 +57,7 @@ namespace CarRental.Data.Migrations
                     b.Property<double>("Price")
                         .HasColumnType("float");
 
-                    b.Property<int>("Raiting")
+                    b.Property<int?>("Raiting")
                         .HasColumnType("int");
 
                     b.Property<DateTime>("Test_validity")
@@ -79,7 +79,7 @@ namespace CarRental.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
-                    b.Property<bool>("Accessible_to_disabled")
+                    b.Property<bool?>("Accessible_to_disabled")
                         .HasColumnType("bit");
 
                     b.Property<string>("Adress")
@@ -136,12 +136,17 @@ namespace CarRental.Data.Migrations
                     b.Property<decimal>("TotalPayment")
                         .HasColumnType("decimal(18,3)");
 
-                    b.Property<string>("UserTz")
-                        .IsRequired()
+                    b.Property<int>("UserId")
                         .HasMaxLength(9)
-                        .HasColumnType("nvarchar(9)");
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CarId");
+
+                    b.HasIndex("CollectionPointId");
+
+                    b.HasIndex("UserId");
 
                     b.ToTable("Invitation");
                 });
@@ -155,7 +160,6 @@ namespace CarRental.Data.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"), 1L, 1);
 
                     b.Property<string>("Adress")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Email")
@@ -179,12 +183,39 @@ namespace CarRental.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int>("Zip_code")
+                    b.Property<int?>("Zip_code")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
                     b.ToTable("User");
+                });
+
+            modelBuilder.Entity("CarRental.Core.Entities.InvitationEntity", b =>
+                {
+                    b.HasOne("CarRental.Core.Entities.CarEntity", "Car")
+                        .WithMany()
+                        .HasForeignKey("CarId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarRental.Core.Entities.CollectionPointEntity", "CollectionPoint")
+                        .WithMany()
+                        .HasForeignKey("CollectionPointId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("CarRental.Core.Entities.UserEntity", "User")
+                        .WithMany()
+                        .HasForeignKey("UserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Car");
+
+                    b.Navigation("CollectionPoint");
+
+                    b.Navigation("User");
                 });
 #pragma warning restore 612, 618
         }

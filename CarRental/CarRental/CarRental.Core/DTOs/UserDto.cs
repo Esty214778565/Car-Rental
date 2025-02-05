@@ -1,26 +1,21 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace CarRental.Core.Entities
+namespace CarRental.Core.DTOs
 {
-    [Table("User")]
-    public class UserEntity
+    public class UserDto
     {
-        [Key]
-        public int Id { get; set;}
-        //[Required,MaxLength(9)]
-        public string Tz { get; set;}
+        public int Id { get; set; }
+        public string Tz { get; set; }
         public string Name { get; set; }
         public string? Adress { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }
         public int? Zip_code { get; set; }
-        [MaxLength(10)]
-        public string Phone { get; set; }     
+        public string Phone { get; set; }
     }
 }

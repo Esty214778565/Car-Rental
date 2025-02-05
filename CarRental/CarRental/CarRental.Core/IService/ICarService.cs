@@ -1,4 +1,5 @@
-﻿using CarRental.Core.Entities;
+﻿using CarRental.Core.DTOs;
+using CarRental.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace CarRental.Core.IService
 {
     public interface ICarService
     {
-        List<CarEntity> GetCarList();
-        CarEntity GetCarById(int id);
+        List<CarDto> GetCarList();
+        CarDto GetCarById(int id);
         bool Add(CarEntity car);
         bool Update(CarEntity car);
         bool Delete(int id);

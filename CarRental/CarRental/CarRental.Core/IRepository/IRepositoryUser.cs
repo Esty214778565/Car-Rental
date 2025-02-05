@@ -9,7 +9,7 @@ namespace CarRental.Core.IRepository
 {
     public interface IRepository<T>
     {
-         List<T> GetAllData();
+         List<T> GetAllDataAsync();
         T GetById(int id);
          bool Add(T user);
 

@@ -1,5 +1,6 @@
 ﻿using CarRental.Core.Entities;
 using CarRental.Core.IRepository;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,9 +15,16 @@ namespace CarRental.Data.Repository
         public InvitationRepository(DataContext dataContext)
         { _dataContext = dataContext; }
 
-        public List<InvitationEntity> GetAllData()
-        {
-            return _dataContext.Invitations.ToList();
+        public List<InvitationEntity> GetAllDataAsync()
+        {//run time xeception beacuse userId is invalid
+            //var userExists = _dataContext.Users.Any(u => _dataContext.Invitations.Select(e => e.UserId).Contains(u.Id));
+            //if (!userExists)
+            //{
+            //    return null;
+            //}
+           // return _dataContext.Invitations.ToList();
+           return _dataContext.Invitations.Include(i => i.Car).Include(i => i.User).Include(i => i.CollectionPoint).ToList();
+
         }
 
         public InvitationEntity GetById(int id)
@@ -44,8 +52,8 @@ namespace CarRental.Data.Repository
                 return false;
             if (Invitation.ReturnDate != new DateTime())
                 _dataContext.Invitations.ToList()[i].ReturnDate = Invitation.ReturnDate;
-            if (Invitation.UserTz != "")
-                _dataContext.Invitations.ToList()[i].UserTz = Invitation.UserTz;
+            if (Invitation.UserId != _dataContext.Invitations.ToList()[i].UserId)
+                _dataContext.Invitations.ToList()[i].UserId = Invitation.UserId;
             if (Invitation.CollectionDate != new DateTime())
                 _dataContext.Invitations.ToList()[i].CollectionDate = Invitation.CollectionDate;
             if (Invitation.CarId > 0)

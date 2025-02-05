@@ -1,3 +1,4 @@
+using CarRental.Core;
 using CarRental.Core.Entities;
 using CarRental.Core.IRepository;
 using CarRental.Core.IService;
@@ -6,9 +7,15 @@ using CarRental.Data.Repository;
 using CarRental.Service;
 using Microsoft.AspNetCore.Cors.Infrastructure;
 using Microsoft.EntityFrameworkCore;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddControllers().AddJsonOptions(options =>
+{
+    options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.IgnoreCycles;
+    options.JsonSerializerOptions.WriteIndented = true;
+});
 // Add services to the container.
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IRepository<UserEntity>, UserRepository>();
@@ -32,7 +39,7 @@ builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
-
+builder.Services.AddAutoMapper(typeof(MappingProfile));//check?
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.

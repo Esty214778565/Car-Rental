@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 
 namespace CarRental.Data.Migrations
 {
-    public partial class carRental : Migration
+    public partial class with_foreign_key : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
@@ -22,10 +22,10 @@ namespace CarRental.Data.Migrations
                     Fuel_consumption_per_km = table.Column<int>(type: "int", nullable: false),
                     Test_validity = table.Column<DateTime>(type: "datetime2", nullable: false),
                     Kategory = table.Column<int>(type: "int", nullable: false),
-                    IsAvailable = table.Column<bool>(type: "bit", nullable: false),
+                    IsAvailable = table.Column<bool>(type: "bit", nullable: true),
                     Price = table.Column<double>(type: "float", nullable: false),
                     Color = table.Column<int>(type: "int", nullable: false),
-                    Raiting = table.Column<int>(type: "int", nullable: false)
+                    Raiting = table.Column<int>(type: "int", nullable: true)
                 },
                 constraints: table =>
                 {
@@ -43,11 +43,30 @@ namespace CarRental.Data.Migrations
                     Adress = table.Column<string>(type: "nvarchar(max)", nullable: false),
                     Max_num_of_cars = table.Column<int>(type: "int", nullable: false),
                     Num_of_cars_occupancy = table.Column<int>(type: "int", nullable: false),
-                    Accessible_to_disabled = table.Column<bool>(type: "bit", nullable: false)
+                    Accessible_to_disabled = table.Column<bool>(type: "bit", nullable: true)
                 },
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_CollectionPoint", x => x.Id);
+                });
+
+            migrationBuilder.CreateTable(
+                name: "User",
+                columns: table => new
+                {
+                    Id = table.Column<int>(type: "int", nullable: false)
+                        .Annotation("SqlServer:Identity", "1, 1"),
+                    Tz = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Adress = table.Column<string>(type: "nvarchar(max)", nullable: true),
+                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
+                    Zip_code = table.Column<int>(type: "int", nullable: true),
+                    Phone = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false)
+                },
+                constraints: table =>
+                {
+                    table.PrimaryKey("PK_User", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
@@ -57,7 +76,7 @@ namespace CarRental.Data.Migrations
                     Id = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
                     NumInvitation = table.Column<int>(type: "int", nullable: false),
-                    UserTz = table.Column<string>(type: "nvarchar(9)", maxLength: 9, nullable: false),
+                    UserId = table.Column<int>(type: "int", maxLength: 9, nullable: false),
                     CarId = table.Column<int>(type: "int", nullable: false),
                     CollectionDate = table.Column<DateTime>(type: "datetime2", nullable: false),
                     ReturnDate = table.Column<DateTime>(type: "datetime2", nullable: false),
@@ -69,38 +88,52 @@ namespace CarRental.Data.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_Invitation", x => x.Id);
+                    table.ForeignKey(
+                        name: "FK_Invitation_Car_CarId",
+                        column: x => x.CarId,
+                        principalTable: "Car",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Invitation_CollectionPoint_CollectionPointId",
+                        column: x => x.CollectionPointId,
+                        principalTable: "CollectionPoint",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
+                    table.ForeignKey(
+                        name: "FK_Invitation_User_UserId",
+                        column: x => x.UserId,
+                        principalTable: "User",
+                        principalColumn: "Id",
+                        onDelete: ReferentialAction.Cascade);
                 });
 
-            migrationBuilder.CreateTable(
-                name: "User",
-                columns: table => new
-                {
-                    Id = table.Column<int>(type: "int", nullable: false)
-                        .Annotation("SqlServer:Identity", "1, 1"),
-                    Tz = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Name = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Adress = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Email = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Password = table.Column<string>(type: "nvarchar(max)", nullable: false),
-                    Zip_code = table.Column<int>(type: "int", nullable: false),
-                    Phone = table.Column<string>(type: "nvarchar(10)", maxLength: 10, nullable: false)
-                },
-                constraints: table =>
-                {
-                    table.PrimaryKey("PK_User", x => x.Id);
-                });
+            migrationBuilder.CreateIndex(
+                name: "IX_Invitation_CarId",
+                table: "Invitation",
+                column: "CarId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Invitation_CollectionPointId",
+                table: "Invitation",
+                column: "CollectionPointId");
+
+            migrationBuilder.CreateIndex(
+                name: "IX_Invitation_UserId",
+                table: "Invitation",
+                column: "UserId");
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
+                name: "Invitation");
+
+            migrationBuilder.DropTable(
                 name: "Car");
 
             migrationBuilder.DropTable(
                 name: "CollectionPoint");
-
-            migrationBuilder.DropTable(
-                name: "Invitation");
 
             migrationBuilder.DropTable(
                 name: "User");

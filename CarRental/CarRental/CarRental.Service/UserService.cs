@@ -1,4 +1,6 @@
-﻿using CarRental.Core.Entities;
+﻿using AutoMapper;
+using CarRental.Core.DTOs;
+using CarRental.Core.Entities;
 using CarRental.Core.IRepository;
 using CarRental.Core.IService;
 using System;
@@ -9,39 +11,44 @@ using System.Threading.Tasks;
 
 namespace CarRental.Service
 {
+
     public class UserService : IUserService
     {
         readonly IRepository<UserEntity> _userRepository;
-
-        public UserService(IRepository<UserEntity> userRepository)
+        private readonly IMapper _mapper;
+        public UserService(IRepository<UserEntity> userRepository, IMapper mapper)
         {
             _userRepository = userRepository;
+            this._mapper = mapper;
         }
 
-        public List<UserEntity> GetUserList()
+        public List<UserDto> GetUserList()
         {
-            return _userRepository.GetAllData();
+            var list=_userRepository.GetAllDataAsync();
+            var listDto = _mapper.Map<IEnumerable<UserDto>>(list);
+            return listDto.ToList();
         }
 
-        public UserEntity GetUserById(int id)
+        public UserDto GetUserById(int id)
         {
-            return _userRepository.GetById(id);
+            var user= _userRepository.GetById(id);
+            return _mapper.Map<UserDto>(user);
         }
 
         public bool Add(UserEntity user)
         {
-            if (_userRepository.GetIndexById(user.Id)>-1)
+            if (_userRepository.GetIndexById(user.Id) > -1)
                 return false;
-            if(!IsValidIsraelTz(user.Tz)||!IsValidEmail(user.Email))
+            if (!IsValidIsraelTz(user.Tz) || !IsValidEmail(user.Email))
                 return false;
-           return _userRepository.Add(user);
+            return _userRepository.Add(user);
         }
 
         public bool Update(UserEntity user)
         {
             if (_userRepository.GetIndexById(user.Id) < 0)
                 return false;
-            if (!IsValidIsraelTz(user.Tz)||!IsValidEmail(user.Email))
+            if (!IsValidIsraelTz(user.Tz) || !IsValidEmail(user.Email))
                 return false;
             return _userRepository.Update(user);
         }

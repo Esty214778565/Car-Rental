@@ -17,7 +17,7 @@ namespace CarRental.Data.Repository
             _dataContext = dataContext;
         }
 
-        public List<UserEntity> GetAllData()
+        public List<UserEntity> GetAllDataAsync()
         {
             return _dataContext.Users.ToList();
         }

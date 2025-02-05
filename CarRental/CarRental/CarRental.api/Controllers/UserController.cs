@@ -1,4 +1,5 @@
-﻿using CarRental.Core.Entities;
+﻿using CarRental.Core.DTOs;
+using CarRental.Core.Entities;
 using CarRental.Core.IService;
 using CarRental.Data.Repository;
 using CarRental.Service;
@@ -21,18 +22,18 @@ namespace CarRental.api.Controllers
 
         // GET: api/<UserController>
         [HttpGet]
-        public ActionResult<List<UserEntity>> Get()
+        public ActionResult<List<UserDto>> Get()
         {
             return _userService.GetUserList();
         }
 
         // GET api/<UserController>/5
         [HttpGet("{id}")]
-        public ActionResult<UserEntity> GetById(int id)
+        public ActionResult<UserDto> GetById(int id)
         {
             if (id < 0)
                 return BadRequest();
-            UserEntity result = _userService.GetUserById(id);     
+            var result = _userService.GetUserById(id);     
             return result == null ? NotFound() : result;
         }
 

@@ -1,4 +1,6 @@
-﻿using CarRental.Core.Entities;
+﻿using AutoMapper;
+using CarRental.Core.DTOs;
+using CarRental.Core.Entities;
 using CarRental.Core.IRepository;
 using CarRental.Core.IService;
 using System;
@@ -15,20 +17,24 @@ namespace CarRental.Service
 
      
         readonly IRepository<CollectionPointEntity> _CollectionPointRepository;
-
-        public CollectionPointService(IRepository<CollectionPointEntity> collectionPointRepository)
+        readonly IMapper _mapper;
+        public CollectionPointService(IRepository<CollectionPointEntity> collectionPointRepository,IMapper mapper)
         {
             _CollectionPointRepository = collectionPointRepository;
+            _mapper = mapper;
         }
 
-        public List<CollectionPointEntity> GetCollectionPointList()
+        public List<CollectionPointDto> GetCollectionPointList()
         {
-            return _CollectionPointRepository.GetAllData();
+            var list= _CollectionPointRepository.GetAllDataAsync();
+            var listDto=_mapper.Map<IEnumerable<CollectionPointDto>>(list);
+            return listDto.ToList();
         }
 
-        public CollectionPointEntity GetCollectionPointById(int id)
+        public CollectionPointDto GetCollectionPointById(int id)
         {
-            return _CollectionPointRepository.GetById(id);
+            var collectionPoint= _CollectionPointRepository.GetById(id);
+            return _mapper.Map<CollectionPointDto>(collectionPoint);
         }
 
         public bool Add(CollectionPointEntity CollectionPoint)

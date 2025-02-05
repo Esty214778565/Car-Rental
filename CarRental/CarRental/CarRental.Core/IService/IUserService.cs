@@ -1,4 +1,5 @@
-﻿using CarRental.Core.Entities;
+﻿using CarRental.Core.DTOs;
+using CarRental.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace CarRental.Core.IService
 {
     public interface IUserService
     {
-        List<UserEntity> GetUserList();
-        UserEntity GetUserById(int id);
+        List<UserDto> GetUserList();
+        UserDto GetUserById(int id);
         bool Add(UserEntity user);
         bool Update(UserEntity user);
         bool Delete(int id);

@@ -1,4 +1,5 @@
-﻿using CarRental.Core.Entities;
+﻿using CarRental.Core.DTOs;
+using CarRental.Core.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,8 +10,8 @@ namespace CarRental.Core.IService
 {
     public interface IInvitationService
     {
-        List<InvitationEntity> GetInvitationList();
-        InvitationEntity GetInvitationById(int id);
+        List<InvitationDto> GetInvitationList();
+        InvitationDto GetInvitationById(int id);
         bool Add(InvitationEntity invitation);
         bool Update(InvitationEntity invitation);
         bool Delete(int id);
