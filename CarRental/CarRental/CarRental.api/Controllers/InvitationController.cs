@@ -1,4 +1,6 @@
-﻿using CarRental.Core.DTOs;
+﻿using AutoMapper;
+using CarRental.api.Models;
+using CarRental.Core.DTOs;
 using CarRental.Core.Entities;
 using CarRental.Core.IService;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +14,12 @@ namespace CarRental.api.Controllers
     public class InvitationController : ControllerBase
     {
         readonly IInvitationService _invitationService;
+        readonly IMapper _mapper;
 
-        public InvitationController(IInvitationService invitationService)
+        public InvitationController(IInvitationService invitationService,IMapper mapper)
         {
             _invitationService = invitationService;
+            _mapper = mapper;
         }
 
 
@@ -38,16 +42,16 @@ namespace CarRental.api.Controllers
 
         // POST api/<InvitationController>
         [HttpPost]
-        public ActionResult<bool> Post([FromBody] InvitationEntity Invitation)
+        public ActionResult<bool> Post([FromBody] InvitationPostModel Invitation)
         {
-            return _invitationService.Add(Invitation);
+            return _invitationService.Add(_mapper.Map<InvitationDto>(Invitation));
         }
 
         // PUT api/<InvitationController>/5
         [HttpPut("{id}")]
-        public ActionResult<bool> Put([FromBody] InvitationEntity Invitation)
+        public ActionResult<bool> Put([FromBody] InvitationPostModel Invitation)
         {
-            return !_invitationService.Update(Invitation) ? NotFound() : true;
+            return !_invitationService.Update(_mapper.Map<InvitationDto>(Invitation)) ? NotFound() : true;
         }
 
         // DELETE api/<InvitationController>/5

@@ -35,22 +35,22 @@ namespace CarRental.Service
             return _mapper.Map<UserDto>(user);
         }
 
-        public bool Add(UserEntity user)
+        public bool Add(UserDto user)
         {
             if (_userRepository.GetIndexById(user.Id) > -1)
                 return false;
             if (!IsValidIsraelTz(user.Tz) || !IsValidEmail(user.Email))
                 return false;
-            return _userRepository.Add(user);
+            return _userRepository.Add(_mapper.Map<UserEntity>(user));
         }
 
-        public bool Update(UserEntity user)
+        public bool Update(UserDto user)
         {
             if (_userRepository.GetIndexById(user.Id) < 0)
                 return false;
             if (!IsValidIsraelTz(user.Tz) || !IsValidEmail(user.Email))
                 return false;
-            return _userRepository.Update(user);
+            return _userRepository.Update(_mapper.Map<UserEntity>(user));
         }
 
         public bool Delete(int id)

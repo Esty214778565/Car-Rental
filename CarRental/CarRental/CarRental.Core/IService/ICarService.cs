@@ -12,8 +12,8 @@ namespace CarRental.Core.IService
     {
         List<CarDto> GetCarList();
         CarDto GetCarById(int id);
-        bool Add(CarEntity car);
-        bool Update(CarEntity car);
+        bool Add(CarDto car);
+        bool Update(CarDto car);
         bool Delete(int id);
 
     }

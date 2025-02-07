@@ -1,4 +1,6 @@
-﻿using CarRental.Core.DTOs;
+﻿using AutoMapper;
+using CarRental.api.Models;
+using CarRental.Core.DTOs;
 using CarRental.Core.Entities;
 using CarRental.Core.IService;
 using CarRental.Data.Repository;
@@ -14,10 +16,11 @@ namespace CarRental.api.Controllers
     public class UserController : ControllerBase
     {
         readonly IUserService _userService;
-
-        public UserController(IUserService userService)
+        readonly IMapper _mapper;
+        public UserController(IUserService userService,IMapper mapper)
         {
             _userService = userService;
+            _mapper = mapper;
         }
 
         // GET: api/<UserController>
@@ -39,9 +42,10 @@ namespace CarRental.api.Controllers
 
         // POST api/<UserController>
         [HttpPost]
-        public ActionResult<bool> Post([FromBody] UserEntity user)
+        public ActionResult<bool> Post([FromBody] UserPostModel user)
         {
-            var res=_userService.Add(user);
+            ;
+            var res=_userService.Add(_mapper.Map<UserDto>(user));
             if(!res)
                 return BadRequest();
             return true;
@@ -49,9 +53,9 @@ namespace CarRental.api.Controllers
 
         // PUT api/<UserController>/5
         [HttpPut("{id}")]
-        public ActionResult<bool> Put([FromBody] UserEntity user)
+        public ActionResult<bool> Put([FromBody] UserPostModel user)
         {
-            return !_userService.Update(user) ? NotFound() : true;
+            return !_userService.Update(_mapper.Map<UserDto>(user)) ? NotFound() : true;
         }
 
         // DELETE api/<UserController>/5

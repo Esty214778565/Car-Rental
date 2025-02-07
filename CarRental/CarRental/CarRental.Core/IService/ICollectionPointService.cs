@@ -12,8 +12,8 @@ namespace CarRental.Core.IService
     {
         List<CollectionPointDto> GetCollectionPointList();
         CollectionPointDto GetCollectionPointById(int id);
-        bool Add(CollectionPointEntity collectionPoint);
-        bool Update(CollectionPointEntity collectionPoint);
+        bool Add(CollectionPointDto collectionPoint);
+        bool Update(CollectionPointDto collectionPoint);
         bool Delete(int id);
     }
 }

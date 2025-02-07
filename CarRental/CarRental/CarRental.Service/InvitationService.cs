@@ -36,19 +36,19 @@ namespace CarRental.Service
             return _mapper.Map<InvitationDto>(invitation);
         }
 
-        public bool Add(InvitationEntity Invitation)
+        public bool Add(InvitationDto Invitation)
         {
             if (_InvitationRepository.GetIndexById(Invitation.Id) >-1)
                 return false;
-            return _InvitationRepository.Add(Invitation);
+            return _InvitationRepository.Add(_mapper.Map<InvitationEntity>(Invitation));
         }
 
-        public bool Update(InvitationEntity Invitation)
+        public bool Update(InvitationDto Invitation)
         {
 
             if (_InvitationRepository.GetIndexById(Invitation.Id) < 0)
                 return false;
-            return _InvitationRepository.Update(Invitation);
+            return _InvitationRepository.Update(_mapper.Map<InvitationEntity>(Invitation));
         }
 
         public bool Delete(int id)

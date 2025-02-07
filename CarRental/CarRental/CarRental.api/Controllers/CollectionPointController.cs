@@ -6,6 +6,8 @@ using CarRental.Data.Repository;
 using CarRental.Core.IRepository;
 using CarRental.api.Controllers;
 using CarRental.Core.DTOs;
+using AutoMapper;
+using CarRental.api.Models;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -16,10 +18,11 @@ namespace CarRental.api.Controllers
     public class CollectionPointController : ControllerBase
     {
         readonly ICollectionPointService _collectionPointService;
-
-        public CollectionPointController(ICollectionPointService collectionPointService)
+        readonly IMapper _mapper;
+        public CollectionPointController(ICollectionPointService collectionPointService,IMapper mapper)
         {
             _collectionPointService = collectionPointService;
+            _mapper = mapper;
         }
 
         // GET: api/<CollectionPointController>
@@ -41,16 +44,16 @@ namespace CarRental.api.Controllers
 
         // POST api/<CollectionPointController>
         [HttpPost]
-        public ActionResult<bool> Post([FromBody] CollectionPointEntity CollectionPoint)
+        public ActionResult<bool> Post([FromBody] CollectionPointPostModel CollectionPoint)
         {
-            return _collectionPointService.Add(CollectionPoint);
+            return _collectionPointService.Add(_mapper.Map<CollectionPointDto>(CollectionPoint));
         }
 
         // PUT api/<CollectionPointController>/5
         [HttpPut("{id}")]
-        public ActionResult<bool> Put([FromBody] CollectionPointEntity CollectionPoint)
+        public ActionResult<bool> Put([FromBody] CollectionPointPostModel CollectionPoint)
         {
-            return !_collectionPointService.Update(CollectionPoint) ? NotFound() : true;
+            return !_collectionPointService.Update(_mapper.Map<CollectionPointDto>(CollectionPoint)) ? NotFound() : true;
         }
 
         // DELETE api/<CollectionPointController>/5

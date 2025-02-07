@@ -12,8 +12,8 @@ namespace CarRental.Core.IService
     {
         List<InvitationDto> GetInvitationList();
         InvitationDto GetInvitationById(int id);
-        bool Add(InvitationEntity invitation);
-        bool Update(InvitationEntity invitation);
+        bool Add(InvitationDto invitation);
+        bool Update(InvitationDto invitation);
         bool Delete(int id);
     }
 }

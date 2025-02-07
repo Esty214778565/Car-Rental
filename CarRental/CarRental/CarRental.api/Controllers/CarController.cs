@@ -1,4 +1,6 @@
-﻿using CarRental.Core.DTOs;
+﻿using AutoMapper;
+using CarRental.api.Models;
+using CarRental.Core.DTOs;
 using CarRental.Core.Entities;
 using CarRental.Core.IService;
 using Microsoft.AspNetCore.Mvc;
@@ -12,10 +14,13 @@ namespace CarRental.api.Controllers
     public class CarController : ControllerBase
     {
         readonly ICarService _carService;
+        readonly IMapper _mapper;
 
-        public CarController(ICarService carService)
+
+        public CarController(ICarService carService,IMapper mapper)
         {
             _carService = carService;
+            _mapper = mapper;
         }
 
         // GET: api/<CarController>
@@ -37,16 +42,16 @@ namespace CarRental.api.Controllers
 
         // POST api/<CarController>
         [HttpPost]
-        public ActionResult<bool> Post([FromBody] CarEntity Car)
+        public ActionResult<bool> Post([FromBody] CarPostModel Car)
         {
-            return _carService.Add(Car);
+            return _carService.Add(_mapper.Map<CarDto>(Car));
         }
 
         // PUT api/<CarController>/5
         [HttpPut("{id}")]
-        public ActionResult<bool> Put([FromBody] CarEntity Car)
+        public ActionResult<bool> Put([FromBody] CarPostModel Car)
         {
-            return !_carService.Update(Car) ? NotFound() : true;
+            return !_carService.Update(_mapper.Map<CarDto>(Car)) ? NotFound() : true;
         }
 
         // DELETE api/<CarController>/5

@@ -12,8 +12,8 @@ namespace CarRental.Core.IService
     {
         List<UserDto> GetUserList();
         UserDto GetUserById(int id);
-        bool Add(UserEntity user);
-        bool Update(UserEntity user);
+        bool Add(UserDto user);
+        bool Update(UserDto user);
         bool Delete(int id);
     }
 }

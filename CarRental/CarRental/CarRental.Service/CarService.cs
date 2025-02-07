@@ -35,18 +35,18 @@ namespace CarRental.Service
             return _mapper.Map<CarDto>(car);
         }
 
-        public bool Add(CarEntity Car)
+        public bool Add(CarDto Car)
         {
             if(_CarRepository.GetIndexById(Car.Id)>-1) 
                 return false;
-            return _CarRepository.Add(Car);
+            return _CarRepository.Add(_mapper.Map<CarEntity>(Car));
         }
 
-        public bool Update(CarEntity Car)
+        public bool Update(CarDto Car)
         {
             if (_CarRepository.GetIndexById(Car.Id)<0)
                 return false;
-            return _CarRepository.Update(Car);
+            return _CarRepository.Update(_mapper.Map<CarEntity>(Car));
         }
 
         public bool Delete(int id)

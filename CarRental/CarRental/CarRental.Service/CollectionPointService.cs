@@ -37,19 +37,19 @@ namespace CarRental.Service
             return _mapper.Map<CollectionPointDto>(collectionPoint);
         }
 
-        public bool Add(CollectionPointEntity CollectionPoint)
+        public bool Add(CollectionPointDto CollectionPoint)
         {
 
             if (_CollectionPointRepository.GetIndexById(CollectionPoint.Id) >-1)
                 return false;
-            return _CollectionPointRepository.Add(CollectionPoint);
+            return _CollectionPointRepository.Add(_mapper.Map<CollectionPointEntity>(CollectionPoint));
         }
 
-        public bool Update(CollectionPointEntity CollectionPoint)
+        public bool Update(CollectionPointDto CollectionPoint)
         {
             if (_CollectionPointRepository.GetIndexById(CollectionPoint.Id)<0)
                 return false;
-            return _CollectionPointRepository.Update(CollectionPoint);
+            return _CollectionPointRepository.Update(_mapper.Map<CollectionPointEntity>(CollectionPoint));
         }
 
         public bool Delete(int id)
