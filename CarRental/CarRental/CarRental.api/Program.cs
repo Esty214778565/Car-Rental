@@ -31,6 +31,7 @@ builder.Services.AddScoped<IRepository<InvitationEntity>, InvitationRepository>(
 builder.Services.AddDbContext<DataContext>(option =>
 {
     option.UseSqlServer(
+     
         "Data Source=DESKTOP-1VUANBN;Initial Catalog=CarRental;Integrated Security=true;");
 });
 

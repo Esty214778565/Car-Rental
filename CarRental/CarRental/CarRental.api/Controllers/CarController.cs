@@ -51,6 +51,8 @@ namespace CarRental.api.Controllers
         [HttpPut("{id}")]
         public ActionResult<bool> Put([FromBody] CarPostModel Car)
         {
+            if(Car==null)
+                return BadRequest();
             return !_carService.Update(_mapper.Map<CarDto>(Car)) ? NotFound() : true;
         }
 

@@ -18,14 +18,14 @@ namespace CarRental.Data
 
         }
 
-        public DbSet<CarEntity>Cars { get; set; }
-        public DbSet<UserEntity>Users { get; set; }
-        public DbSet<CollectionPointEntity>CollectionPoints { get; set; }
-        public DbSet<InvitationEntity>Invitations { get; set; }
-      
-       
+        public DbSet<CarEntity> Cars { get; set; }
+        public DbSet<UserEntity> Users { get; set; }
+        public DbSet<CollectionPointEntity> CollectionPoints { get; set; }
+        public DbSet<InvitationEntity> Invitations { get; set; }
 
-     
+
+
+
 
     }
 }

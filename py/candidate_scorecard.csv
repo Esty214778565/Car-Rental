@@ -1,0 +1,20 @@
+Category,Criteria,Weight,Score (1-5),Comments,Weighted Score
+API Client Implementation,Replaced direct HTTP requests with VesselServiceClient,15,,,=D2*C2
+API Client Implementation,Client integration is complete and functional,10,,,=D3*C3
+New Endpoint Implementation,Implemented /activities/covering endpoint,15,,,=D4*C4
+New Endpoint Implementation,Endpoint is properly used in Streamlit app,10,,,=D5*C5
+Feature Enhancement,Added year_of_build field to vessel entity,10,,,=D6*C6
+Feature Enhancement,Implemented search functionality in service,5,,,=D7*C7
+Feature Enhancement,Implemented search functionality in client,5,,,=D8*C8
+Feature Enhancement,Implemented search functionality in Streamlit app,5,,,=D9*C9
+Testing,Created comprehensive test suite for VesselServiceClient,10,,,=D10*C10
+Testing,Used pytest fixtures appropriately,5,,,=D11*C11
+Testing,Added and configured coverage tool,5,,,=D12*C12
+Code Quality,Code is clean and well-structured,5,,,=D13*C13
+Code Quality,No unused code present,5,,,=D14*C14
+Code Quality,Commit history shows incremental changes,5,,,=D15*C15
+Documentation,README includes how to run app and tests,5,,,=D16*C16
+Documentation,README includes how to check test coverage,5,,,=D17*C17
+Documentation,README includes learnings and external resources,5,,,=D18*C18
+TOTAL,Sum of weighted scores,125,,,"=SUM(F2:F18)"
+PERCENTAGE SCORE,,,,,=F19/C19*100
